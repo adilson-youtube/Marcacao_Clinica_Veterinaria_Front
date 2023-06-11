@@ -34,7 +34,7 @@ import { ToastModule } from 'primeng/toast';
 import { SliderModule } from 'primeng/slider';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmationService } from 'primeng/api';
-//import { CalendarModule } from 'primeng/calendar';
+import { CalendarModule } from 'primeng/calendar';
 import { ContextMenuModule} from 'primeng/contextmenu';
 //import { ProgressBarModule} from 'primeng/progressbar';
 import { InputNumberModule} from 'primeng/inputnumber';
@@ -42,6 +42,8 @@ import { InputNumberModule} from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 //import { InputTextareaModule } from 'primeng/inputtextarea';
 import {GalleriaModule} from 'primeng/galleria';
+import {StepsModule} from 'primeng/steps';
+import {SplitterModule} from 'primeng/splitter';
 
 import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api'
@@ -72,6 +74,17 @@ import { AuthUserComponent } from './componentes/authentication/auth-user/auth-u
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { CarrosselComponent } from './componentes/carrossel/carrossel.component';
 import { CartoesComponent } from './componentes/cartoes/cartoes.component';
+import { ServicosComponent } from './componentes/servicos/servicos.component';
+import { VacinaComponent } from './componentes/servicos/vacina/vacina.component';
+import { ExameComponent } from './componentes/servicos/exame/exame.component';
+import { ConsultaComponent } from './componentes/servicos/consulta/consulta.component';
+import { CirurgiaComponent } from './componentes/servicos/cirurgia/cirurgia.component';
+import { MarcacaoComponent } from './componentes/marcacao/marcacao.component';
+import { ProprietarioComponent } from './componentes/proprietario/proprietario.component';
+import { AnimalComponent } from './componentes/proprietario/animal/animal.component';
+import { UsuarioComponent } from './componentes/usuario/usuario.component';
+import { CadastrarComponent } from './componentes/usuario/cadastrar/cadastrar.component';
+import { ConfirmacaoComponent } from './componentes/usuario/confirmacao/confirmacao.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +103,17 @@ import { CartoesComponent } from './componentes/cartoes/cartoes.component';
     InicioComponent,
     CarrosselComponent,
     CartoesComponent,
+    ServicosComponent,
+    VacinaComponent,
+    ExameComponent,
+    ConsultaComponent,
+    CirurgiaComponent,
+    MarcacaoComponent,
+    ProprietarioComponent,
+    AnimalComponent,
+    UsuarioComponent,
+    CadastrarComponent,
+    ConfirmacaoComponent,
   ],
   imports: [
     BrowserModule,
@@ -122,7 +146,7 @@ import { CartoesComponent } from './componentes/cartoes/cartoes.component';
     ConfirmDialogModule,
     ToastModule,
     ToolbarModule,
-  //  CalendarModule,
+    CalendarModule,
     SliderModule,
     ContextMenuModule,
    // ProgressBarModule,
@@ -140,7 +164,9 @@ import { CartoesComponent } from './componentes/cartoes/cartoes.component';
     PanelModule,
     InputMaskModule,
     MatMenuModule,
-    GalleriaModule
+    GalleriaModule,
+    StepsModule,
+    SplitterModule
   ],
   providers: [ConfirmationService, AuthenticationService],
   bootstrap: [AppComponent]

@@ -3,11 +3,11 @@
         <div class="p-col-12">
             <div class="p-grid">
                 <span class="item-spacer"></span>
-                <img class="logo p-col-6" src="assets/images/logo_pet.png" alt="logo">
+                <img class="logo p-col-6" src="assets/images/LogoClinica2.png" alt="logo">
                 <span class="item-spacer"></span>
                 <div>
-                    <h2>URGÊNCIAS 24H 220 406 340</h2>
-                    <h5>Estamos disponíveis 24H na clínica ou em domicílios.</h5>
+                    <h2 style="color: rgb(137, 53, 82);">URGÊNCIAS 24H 923 406 340</h2>
+                    <h5 style="color: rgb(137, 53, 82);">Estamos disponíveis 24H na clínica ou em domicílios.</h5>
                 </div>
                 <span class="item-spacer"></span>
             </div>
@@ -25,8 +25,30 @@
 
         <div>
 
+
+            <button class="texts-color" mat-button routerLink="/marcacao"><mat-icon class="icons-color"> home
+                </mat-icon>INICIO</button>
+
+            <button class="texts-color" mat-button [matMenuTriggerFor]="afterMenu1" (mouseenter)="afterMenu1.openMenu()" (mouseleave)="afterMenu1.closeMenu()"><mat-icon class="icons-color">
+                    public </mat-icon>NOSSOS SERVIÇOS</button>
+            <mat-menu class="custom-menu" #afterMenu1="matMenu" xPosition="after">
+                <button class="texts-color" mat-menu-item routerLink="registar/requerente"><mat-icon
+                        class="icons-color"> person_add </mat-icon>REGISTAR </button>
+                <button class="texts-color" mat-menu-item routerLink="pesquisar"><mat-icon class="icons-color">
+                        person_search </mat-icon>PESQUISAR</button>
+            </mat-menu>
+
             <button class="texts-color" mat-button [matMenuTriggerFor]="afterMenu1"><mat-icon class="icons-color">
-                    person </mat-icon>PROCESSO</button>
+                    groups </mat-icon>EQUIPA VETERINARIA</button>
+            <mat-menu class="custom-menu" #afterMenu1="matMenu" xPosition="after">
+                <button class="texts-color" mat-menu-item routerLink="registar/requerente"><mat-icon
+                        class="icons-color"> person_add </mat-icon>REGISTAR </button>
+                <button class="texts-color" mat-menu-item routerLink="pesquisar"><mat-icon class="icons-color">
+                        person_search </mat-icon>PESQUISAR</button>
+            </mat-menu>
+
+            <button class="texts-color" mat-button [matMenuTriggerFor]="afterMenu1"><mat-icon class="icons-color">
+                    home_work </mat-icon>NOSSAS UNIDADES</button>
             <mat-menu class="custom-menu" #afterMenu1="matMenu" xPosition="after">
                 <button class="texts-color" mat-menu-item routerLink="registar/requerente"><mat-icon
                         class="icons-color"> person_add </mat-icon>REGISTAR </button>
@@ -35,8 +57,12 @@
             </mat-menu>
 
 
-            <button class="texts-color" mat-button routerLink="/dashboard"><mat-icon class="icons-color"> assessment
-                </mat-icon>ESTATÍSTICA</button>
+            <button class="texts-color" mat-button routerLink="/dashboard"><mat-icon class="icons-color"> info
+                </mat-icon>QUEM SOMOS</button>
+
+
+            <button class="texts-color" mat-button routerLink="/dashboard"><mat-icon class="icons-color"> call
+                </mat-icon>FALE CONOSCO</button>
 
 
             <!-- <button class="texts-color espaco" mat-button [matMenuTriggerFor]="afterMenu3"><mat-icon class="icons-color"> miscellaneous_services </mat-icon>ADMINISTRAÇÃO</button> -->
@@ -63,8 +89,6 @@
       <h1 class="text-title">SISTEMA DE GESTÃO DAS VÍTIMAS DOS CONFLITOS POLÍTICOS</h1>
     </mat-toolbar-row> -->
 </mat-toolbar>
-
-<app-carrossel></app-carrossel>
 
 <p-sidebar #userperfil [(visible)]="showPerfil" position="right" [baseZIndex]="10000">
     <div class="p-grid">
