@@ -73,6 +73,15 @@
                         corporate_fare </mat-icon>ORGÃOS</button>
             </mat-menu>
 
+            <button class="texts-color" mat-button [matMenuTriggerFor]="afterMenu1"><mat-icon class="icons-color">
+                manage_accounts </mat-icon></button>
+            <mat-menu class="custom-menu" #afterMenu1="matMenu" xPosition="after">
+                <button class="texts-color" mat-menu-item routerLink="registar/requerente"><mat-icon
+                        class="icons-color"> person_add </mat-icon>REGISTAR </button>
+                <button class="texts-color" mat-menu-item routerLink="pesquisar"><mat-icon class="icons-color">
+                        person_search </mat-icon>PESQUISAR</button>
+            </mat-menu>
+
 
             <button (click)="infoUser()" mat-icon-button class="espaco">
                 <mat-icon class="icons-color">manage_accounts</mat-icon>

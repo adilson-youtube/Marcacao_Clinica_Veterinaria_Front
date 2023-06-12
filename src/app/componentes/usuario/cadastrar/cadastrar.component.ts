@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
+import { Proprietario } from 'src/app/modelo/entidades/prorietario';
+import { Usuario } from 'src/app/modelo/entidades/usuario';
+import { UsuarioService, UsuarioServico } from 'src/app/servicos/usuario.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -8,6 +11,8 @@ import { MenuItem, MessageService } from 'primeng/api';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
+
+  usuario: Usuario;
 
   selectedState: any = null;
 
@@ -24,7 +29,7 @@ export class CadastrarComponent implements OnInit {
   items: MenuItem[] = [];
 
   // constructor(public usuarioStep: UsuarioStep) { }
-  constructor() { }
+  constructor(private usuarioServico: UsuarioServico) { }
 
   ngOnInit(): void {
     this.items = [
@@ -41,6 +46,7 @@ export class CadastrarComponent implements OnInit {
         routerLink: 'confirmacao'
       }
     ];
+    this.usuario = new Proprietario;
   }
 
 }
