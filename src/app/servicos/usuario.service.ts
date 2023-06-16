@@ -24,7 +24,7 @@ export class UsuarioServico {
       return this.repositorio.procurarUsuarioPorCodigo(codigo);
   }
 
-  salvarArea(usuario: Usuario): Observable<Usuario> {
+  salvarUsuario(usuario: Usuario): Observable<Usuario> {
       return this.repositorio.salvarUsuario(usuario);
   }
 }

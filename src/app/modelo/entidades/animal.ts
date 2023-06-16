@@ -7,6 +7,6 @@ export class Animal {
     sexo: string = '';
     dataNascimento: Date = new Date();
     especie: Especie = new Especie();
-    proprietario: Proprietario = new Proprietario();
+    // proprietario: Proprietario = new Proprietario();
     marcacoes: Date = new Date();
 }

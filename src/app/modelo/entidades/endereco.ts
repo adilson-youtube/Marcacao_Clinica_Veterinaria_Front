@@ -8,5 +8,5 @@ export class Endereco {
     bairro?: string = '';
     municipio?: string = '';
     provincia?: string = '';
-    proprietario?: Proprietario = new Proprietario();
+    // proprietario?: Proprietario = new Proprietario();
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
 import { Proprietario } from 'src/app/modelo/entidades/prorietario';
 import { Usuario } from 'src/app/modelo/entidades/usuario';
-import { UsuarioService, UsuarioServico } from 'src/app/servicos/usuario.service';
+import { UsuarioServico } from 'src/app/servicos/usuario.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -12,18 +12,15 @@ import { UsuarioService, UsuarioServico } from 'src/app/servicos/usuario.service
 })
 export class CadastrarComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario = new Proprietario();
 
-  selectedState: any = null;
+  generoSelecionado: any = null;
 
   dateValue: Date = new Date;
 
-  states: any[] = [
-      {name: 'Arizona', code: 'Arizona'},
-      {name: 'California', value: 'California'},
-      {name: 'Florida', code: 'Florida'},
-      {name: 'Ohio', code: 'Ohio'},
-      {name: 'Washington', code: 'Washington'}
+  generos: any[] = [
+      {name: 'Masculino', code: 'Masculino'},
+      {name: 'Femenino', value: 'Femenino'}
   ];
 
   items: MenuItem[] = [];
@@ -46,7 +43,13 @@ export class CadastrarComponent implements OnInit {
         routerLink: 'confirmacao'
       }
     ];
-    this.usuario = new Proprietario;
+    console.log("O nome do Proprietario: "+this.usuario.nome);
+  }
+
+  salvar(): void {
+    this.usuarioServico.salvarUsuario(this.usuario).subscribe( novo => {
+      console.log("Novo Usuario Inserido!"+novo)
+    });
   }
 
 }
