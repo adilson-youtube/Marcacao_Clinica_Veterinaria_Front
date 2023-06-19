@@ -3,19 +3,13 @@ import { Animal } from "./animal";
 import { Endereco } from "./endereco";
 import { Usuario } from "./usuario";
 
-export class Proprietario extends Usuario {
+export class Proprietario {
     id?: number = 0;
     nome?: string = '';
     telefone?: string = '';
     genero?: string = '';
     dataNascimento?: Date = new Date();
-    municipio?: string = '';
-    bairro?: string = '';
-    rua?: string = '';
     endereco?: Endereco = new Endereco();
+    usuario?: Usuario = new Usuario();
     animais?: Array<Animal> = [];
-
-    constructor() {
-        super();
-    }
 }

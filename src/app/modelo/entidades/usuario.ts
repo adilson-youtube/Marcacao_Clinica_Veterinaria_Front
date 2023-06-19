@@ -1,11 +1,11 @@
 import { Role } from "../enumerados/Role";
 
-export abstract class Usuario {
-    protected id?: number = 0;
-    protected usuario?: string = '';
-    protected senha?: string = '';
-    protected email?: string = '';
-    protected role?: Role = Role.Usuario;
-    protected dataCriacao?: Date = new Date();
-    protected ultimoAcesso?: Date = new Date();
+export class Usuario {
+    id?: number = 0;
+    usuario?: string = '';
+    senha?: string = '';
+    email?: string = '';
+    role?: Role = Role.Usuario;
+    dataCriacao?: Date = new Date();
+    ultimoAcesso?: Date = new Date();
 }

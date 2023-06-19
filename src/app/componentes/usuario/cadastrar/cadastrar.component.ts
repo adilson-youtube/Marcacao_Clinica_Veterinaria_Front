@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
 import { Proprietario } from 'src/app/modelo/entidades/prorietario';
 import { Usuario } from 'src/app/modelo/entidades/usuario';
+import { ProprietarioservicoService } from 'src/app/servicos/proprietarioservico.service';
 import { UsuarioServico } from 'src/app/servicos/usuario.service';
 
 @Component({
@@ -14,19 +15,19 @@ export class CadastrarComponent implements OnInit {
 
   usuario = new Proprietario();
 
-  generoSelecionado: any = null;
+  generoSelecionado: any = {};
 
   dateValue: Date = new Date;
 
   generos: any[] = [
       {name: 'Masculino', code: 'Masculino'},
-      {name: 'Femenino', value: 'Femenino'}
+      {name: 'Femenino', code: 'Femenino'}
   ];
 
   items: MenuItem[] = [];
 
   // constructor(public usuarioStep: UsuarioStep) { }
-  constructor(private usuarioServico: UsuarioServico) { }
+  constructor(private proprietarioServico: ProprietarioservicoService) { }
 
   ngOnInit(): void {
     this.items = [
@@ -43,13 +44,16 @@ export class CadastrarComponent implements OnInit {
         routerLink: 'confirmacao'
       }
     ];
-    console.log("O nome do Proprietario: "+this.usuario.nome);
+    // console.log("Os dados do Proprietario: "+this.usuario.nome);
   }
 
   salvar(): void {
-    this.usuarioServico.salvarUsuario(this.usuario).subscribe( novo => {
-      console.log("Novo Usuario Inserido!"+novo)
-    });
+    this.usuario.genero = this.generoSelecionado.code;
+    console.log("Os dados do Proprietario: "+JSON.stringify(this.usuario));
+    this.proprietarioServico.salvarProprietario(this.usuario).subscribe( novo => {
+      console.log("Novo Usuario Inserido! "+ novo);
+    },
+    error => {console.log("Erro "+error.message);});
   }
 
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../modelo/entidades/usuario';
@@ -23,7 +23,8 @@ export class UsuarioRepositorioService {
 
   salvarUsuario(usuario: Usuario): Observable<Usuario> {
       const path = `usuario`;
-      return this.http.post<Usuario>(`${this.baseUrl}${path}`, usuario);
+      return this.http.post<Usuario>(`${this.baseUrl}${path}`, usuario, { headers : new HttpHeaders({
+        'Content-Type': 'application/json' })});
   }
 
   procurarUsuarioPorId(codigo: number): Observable<Usuario> {
