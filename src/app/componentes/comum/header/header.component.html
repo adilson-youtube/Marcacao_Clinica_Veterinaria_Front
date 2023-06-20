@@ -33,9 +33,9 @@
                     public </mat-icon>NOSSOS SERVIÇOS</button>
             <mat-menu class="custom-menu" #afterMenu1="matMenu" xPosition="after">
                 <button class="texts-color" mat-menu-item routerLink="registar/requerente"><mat-icon
-                        class="icons-color"> person_add </mat-icon>REGISTAR </button>
+                        class="icons-color"> person_add </mat-icon>REGISTAR SERVIÇOS</button>
                 <button class="texts-color" mat-menu-item routerLink="pesquisar"><mat-icon class="icons-color">
-                        person_search </mat-icon>PESQUISAR</button>
+                        person_search </mat-icon>PESQUISAR SERVIÇOS</button>
             </mat-menu>
 
             <button class="texts-color" mat-button [matMenuTriggerFor]="afterMenu1"><mat-icon class="icons-color">
@@ -73,13 +73,13 @@
                         corporate_fare </mat-icon>ORGÃOS</button>
             </mat-menu>
 
-            <button class="texts-color" mat-button [matMenuTriggerFor]="afterMenu1"><mat-icon class="icons-color">
+            <button class="texts-color" mat-button [matMenuTriggerFor]="menuUsuario"><mat-icon class="icons-color">
                 manage_accounts </mat-icon></button>
-            <mat-menu class="custom-menu" #afterMenu1="matMenu" xPosition="after">
-                <button class="texts-color" mat-menu-item routerLink="registar/requerente"><mat-icon
-                        class="icons-color"> person_add </mat-icon>REGISTAR </button>
-                <button class="texts-color" mat-menu-item routerLink="pesquisar"><mat-icon class="icons-color">
-                        person_search </mat-icon>PESQUISAR</button>
+            <mat-menu class="custom-menu" #menuUsuario="matMenu" xPosition="after">
+                <button class="texts-color" mat-menu-item routerLink="registarUsuario/proprietario"><mat-icon
+                        class="icons-color"> person_add </mat-icon>PROPRIETARIO </button>
+                <button class="texts-color" mat-menu-item routerLink="/veterinario"><mat-icon class="icons-color">
+                        person_search </mat-icon>VETERINARIA</button>
             </mat-menu>
 
 

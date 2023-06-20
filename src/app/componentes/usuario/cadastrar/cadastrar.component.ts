@@ -4,6 +4,7 @@ import { Proprietario } from 'src/app/modelo/entidades/prorietario';
 import { Usuario } from 'src/app/modelo/entidades/usuario';
 import { ProprietarioservicoService } from 'src/app/servicos/proprietarioservico.service';
 import { UsuarioServico } from 'src/app/servicos/usuario.service';
+import { VeterinarioStep } from 'src/app/servicos/veterinariostep.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -13,28 +14,20 @@ import { UsuarioServico } from 'src/app/servicos/usuario.service';
 })
 export class CadastrarComponent implements OnInit {
 
-  usuario = new Proprietario();
-
-  generoSelecionado: any = {};
-
-  dateValue: Date = new Date;
-
-  generos: any[] = [
-      {name: 'Masculino', code: 'Masculino'},
-      {name: 'Femenino', code: 'Femenino'}
-  ];
-
   items: MenuItem[] = [];
 
-  // constructor(public usuarioStep: UsuarioStep) { }
-  constructor(private proprietarioServico: ProprietarioservicoService) { }
+  constructor(public veterinarioStep: VeterinarioStep) {  }
 
   ngOnInit(): void {
     this.items = [
       {
+        label: 'Informações de Acesso',
+        routerLink: 'usuario'
+      },
+      {
         label: 'Informações Pessoais',
         routerLink: 'proprietario'
-      },
+      } ,
       {
         label: 'Informações do Animal',
         routerLink: 'animal'
@@ -44,16 +37,7 @@ export class CadastrarComponent implements OnInit {
         routerLink: 'confirmacao'
       }
     ];
-    // console.log("Os dados do Proprietario: "+this.usuario.nome);
-  }
-
-  salvar(): void {
-    this.usuario.genero = this.generoSelecionado.code;
-    console.log("Os dados do Proprietario: "+JSON.stringify(this.usuario));
-    this.proprietarioServico.salvarProprietario(this.usuario).subscribe( novo => {
-      console.log("Novo Usuario Inserido! "+ novo);
-    },
-    error => {console.log("Erro "+error.message);});
+   
   }
 
 }

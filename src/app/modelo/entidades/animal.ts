@@ -5,6 +5,7 @@ export class Animal {
     id = 0;
     nome: string = '';
     sexo: string = '';
+    peso: number;
     dataNascimento: Date = new Date();
     especie: Especie = new Especie();
     // proprietario: Proprietario = new Proprietario();

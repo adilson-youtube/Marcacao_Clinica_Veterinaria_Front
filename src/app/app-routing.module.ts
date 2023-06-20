@@ -8,22 +8,24 @@ import { LoginComponent } from './componentes/authentication/login/login.compone
 import { AuthUserComponent } from './componentes/authentication/auth-user/auth-user.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { MarcacaoComponent } from './componentes/marcacao/marcacao.component';
-import { ProprietarioComponent } from './componentes/proprietario/proprietario.component';
-import { CadastrarComponent } from './componentes/usuario/cadastrar/cadastrar.component';
-import { AnimalComponent } from './componentes/proprietario/animal/animal.component';
-import { ConfirmacaoComponent } from './componentes/usuario/confirmacao/confirmacao.component';
+import { RegistarProrietarioComponent } from './componentes/proprietario/registar-prorietario/registar-prorietario.component';
+import { DadosUsuarioComponent } from './componentes/proprietario/registar-prorietario/dados-usuario/dados-usuario.component';
+import { DadosPessoaisComponent } from './componentes/proprietario/registar-prorietario/dados-pessoais/dados-pessoais.component';
+import { DadosAnimalComponent } from './componentes/proprietario/registar-prorietario/dados-animal/dados-animal.component';
+import { ConfirmacaoComponent } from './componentes/proprietario/registar-prorietario/confirmacao/confirmacao.component';
 
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'marcacao', component: MarcacaoComponent },
-  { path: 'prorpietario', component: ProprietarioComponent },
+  // { path: 'prorpietario', component: ProprietarioComponent },
   // { path: 'registarUsuario', component: CadastrarComponent },
-  { path: 'registarUsuario', component: CadastrarComponent, children: 
+  { path: 'registarUsuario', component: RegistarProrietarioComponent, children: 
     [
-      {path: '', redirectTo: 'proprietario', pathMatch: 'full'},
-      {path: 'proprietario', component: ProprietarioComponent},
-      {path: 'animal', component: AnimalComponent},
+      {path: '', redirectTo: 'acesso', pathMatch: 'full'},
+      {path: 'acesso', component: DadosUsuarioComponent},
+      {path: 'pessoais', component: DadosPessoaisComponent},
+      {path: 'animal', component: DadosAnimalComponent},
       {path: 'confirmacao', component: ConfirmacaoComponent}
     ]
   },

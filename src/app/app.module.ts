@@ -80,11 +80,13 @@ import { ExameComponent } from './componentes/servicos/exame/exame.component';
 import { ConsultaComponent } from './componentes/servicos/consulta/consulta.component';
 import { CirurgiaComponent } from './componentes/servicos/cirurgia/cirurgia.component';
 import { MarcacaoComponent } from './componentes/marcacao/marcacao.component';
-import { ProprietarioComponent } from './componentes/proprietario/proprietario.component';
-import { AnimalComponent } from './componentes/proprietario/animal/animal.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { CadastrarComponent } from './componentes/usuario/cadastrar/cadastrar.component';
 import { ConfirmacaoComponent } from './componentes/usuario/confirmacao/confirmacao.component';
+import { RegistarProrietarioComponent } from './componentes/proprietario/registar-prorietario/registar-prorietario.component';
+import { DadosPessoaisComponent } from './componentes/proprietario/registar-prorietario/dados-pessoais/dados-pessoais.component';
+import { DadosUsuarioComponent } from './componentes/proprietario/registar-prorietario/dados-usuario/dados-usuario.component';
+import { DadosAnimalComponent } from './componentes/proprietario/registar-prorietario/dados-animal/dados-animal.component';
 
 @NgModule({
   declarations: [
@@ -109,11 +111,13 @@ import { ConfirmacaoComponent } from './componentes/usuario/confirmacao/confirma
     ConsultaComponent,
     CirurgiaComponent,
     MarcacaoComponent,
-    ProprietarioComponent,
-    AnimalComponent,
     UsuarioComponent,
     CadastrarComponent,
     ConfirmacaoComponent,
+    RegistarProrietarioComponent,
+    DadosPessoaisComponent,
+    DadosUsuarioComponent,
+    DadosAnimalComponent,
   ],
   imports: [
     BrowserModule,
