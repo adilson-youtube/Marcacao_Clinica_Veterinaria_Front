@@ -37,6 +37,7 @@ export class DadosPessoaisComponent implements OnInit {
   }
 
   proximo(): void {
+    this.proprietario.genero = this.generoSelecionado.name;
     this.proprietarioStep.setProprietario(this.proprietario);
     this.router.navigate(['registarUsuario/animal']);
   }
@@ -45,15 +46,6 @@ export class DadosPessoaisComponent implements OnInit {
   retroceder(): void {
     this.proprietarioStep.setProprietario(this.proprietario);
     this.router.navigate(['registarUsuario/acesso']);
-  }
-
-  salvar(): void {
-    this.proprietario.genero = this.generoSelecionado.code;
-    console.log("Os dados do Proprietario: "+JSON.stringify(this.proprietario));
-    this.proprietarioServico.salvarProprietario(this.proprietario).subscribe( novo => {
-      console.log("Novo Usuario Inserido! "+ novo);
-    },
-    error => {console.log("Erro "+error.message);});
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { Animal } from 'src/app/modelo/entidades/animal';
 import { Proprietario } from 'src/app/modelo/entidades/prorietario';
 import { ProprietarioservicoService } from 'src/app/servicos/proprietarioservico.service';
@@ -9,7 +9,8 @@ import { ProprietarioStep } from 'src/app/servicos/proprietariostep.service';
 @Component({
   selector: 'app-dados-animal',
   templateUrl: './dados-animal.component.html',
-  styleUrls: ['./dados-animal.component.css']
+  styleUrls: ['./dados-animal.component.css'],
+  providers: [MessageService]
 })
 export class DadosAnimalComponent implements OnInit {
 
@@ -35,10 +36,12 @@ export class DadosAnimalComponent implements OnInit {
   constructor(
     public proprietarioStep: ProprietarioStep,
     private router: Router,
-    private proprietarioServico: ProprietarioservicoService
+    private proprietarioServico: ProprietarioservicoService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
+    // this.proprietario.animais
     this.proprietario = this.proprietarioStep.getProprietario();
   }
 
@@ -57,13 +60,70 @@ export class DadosAnimalComponent implements OnInit {
     return (this.nova ? 'Registar' : 'Editar') + ' Animal';
   }
 
-  salvar(): void {
-    this.proprietario.genero = this.generoSelecionado.code;
-    console.log("Os dados do Proprietario: "+JSON.stringify(this.proprietario));
-    this.proprietarioServico.salvarProprietario(this.proprietario).subscribe( novo => {
-      console.log("Novo Usuario Inserido! "+ novo);
-    },
-    error => {console.log("Erro "+error.message);});
+  modal(animal?: Animal): void  {
+    this.nova = animal ? false : true;
+    this.animal = this.nova ? new Animal() : animal ?? new Animal();
+    this.exibir = true;
+    this.validar = false;
+  }
+
+  cancelar(): void  {
+    this.exibir = false;
+    this.validar = false;
+    this.animal = new Animal();
+  }
+
+  salvar(): void  {
+    this.validar = true;
+    // this.filiacao.riId = this.ri.id;
+    let lista = this.proprietario.animais.find(a => a.nome?.toUpperCase() === this.animal.nome?.toUpperCase())?.nome;
+
+    if (this.nova) {
+      if (!lista) {
+        this.animal.sexo = this.generos[0].name;
+        this.proprietario.animais.unshift(this.animal); 
+        this.limparCampos();
+        this.mensagem('success', 'Animal registado com sucesso');
+        // this.timeOut();
+      } else {
+        this. mensagem('warn', 'Animal já encontra-se registado');
+        // this.timeOut();
+      }
+    }
+
+    // if (this.filiacao.denominacao && this.filiacao.riId) {
+    //   if (this.nova) {
+    //     if (!lista) {
+    //       this.riServico.salvarFiliacao(this.filiacao).subscribe( novafiliacao => {
+    //         this.filiacoes.unshift(novafiliacao); 
+    //         this.limparCampos();
+    //         this.mensagem('success', 'Filiação registada com sucesso');
+    //         this.timeOut();
+    //       });
+    //     } else {
+    //       this. mensagem('warn', 'Filiação já encontra-se registada');
+    //       this.timeOut();
+    //     }
+    //   } else {
+    //     this.riServico.salvarFiliacao(this.filiacao).subscribe( editarfiliacao => {
+    //       this.limparCampos(); this.exibir = false;
+    //     });
+    //   }
+    // }
+    
+  }
+
+  timeOut(){
+    setTimeout(() =>{ this.messageService.clear(); }, 30000);
+  }
+
+  mensagem(tipo: string, msg: string){
+    this.messageService.add({severity: tipo, detail: msg});
+  }
+
+  limparCampos() {
+    this.validar = false;
+    this.animal = new Animal();
   }
 
 }

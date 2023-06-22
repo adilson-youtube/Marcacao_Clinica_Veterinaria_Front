@@ -44,6 +44,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import {GalleriaModule} from 'primeng/galleria';
 import {StepsModule} from 'primeng/steps';
 import {SplitterModule} from 'primeng/splitter';
+import {DividerModule} from 'primeng/divider';
+import {TimelineModule} from 'primeng/timeline';
+
 
 import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api'
@@ -82,7 +85,7 @@ import { CirurgiaComponent } from './componentes/servicos/cirurgia/cirurgia.comp
 import { MarcacaoComponent } from './componentes/marcacao/marcacao.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { CadastrarComponent } from './componentes/usuario/cadastrar/cadastrar.component';
-import { ConfirmacaoComponent } from './componentes/usuario/confirmacao/confirmacao.component';
+import { ConfirmacaoComponent } from './componentes/proprietario/registar-prorietario/confirmacao/confirmacao.component'; 
 import { RegistarProrietarioComponent } from './componentes/proprietario/registar-prorietario/registar-prorietario.component';
 import { DadosPessoaisComponent } from './componentes/proprietario/registar-prorietario/dados-pessoais/dados-pessoais.component';
 import { DadosUsuarioComponent } from './componentes/proprietario/registar-prorietario/dados-usuario/dados-usuario.component';
@@ -170,7 +173,9 @@ import { DadosAnimalComponent } from './componentes/proprietario/registar-prorie
     MatMenuModule,
     GalleriaModule,
     StepsModule,
-    SplitterModule
+    SplitterModule,
+    DividerModule,
+    TimelineModule
   ],
   providers: [ConfirmationService, AuthenticationService],
   bootstrap: [AppComponent]

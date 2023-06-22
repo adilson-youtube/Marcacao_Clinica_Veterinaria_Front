@@ -3,6 +3,6 @@ import { Animal } from "./animal";
 
 export class Especie {
     id = 0;
-    raca: string = '';
-    animais: Array<Animal> = [] ;
+    raca?: string = '';
+    animais?: Array<Animal> = [] ;
 }

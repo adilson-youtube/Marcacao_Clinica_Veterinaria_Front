@@ -7,5 +7,6 @@ export class Endereco {
     rua?: string = '';
     bairro?: string = '';
     municipio?: string = '';
+    proprietarioId?: number = 0;
     // proprietario?: Proprietario = new Proprietario();
 }

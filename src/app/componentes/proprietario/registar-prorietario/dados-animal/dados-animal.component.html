@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <!------------------------ tabela ------------------------------------>
 <p-card>
     <h3>Dados de Acesso</h3>
@@ -49,21 +50,21 @@
 </p-card>
 
 <!---------------------------- modal -------------------------------->
-<p-dialog [header]="cabecario" [(visible)]="exibir" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
-    <div class="p-fluid formgrid grid"> 
-        <div class="field col-12 md:col-6">
-            <label>Denominação *</label>
-            <input id="denominacao" type="text" [(ngModel)]="animal.nome" pInputText>
+<p-dialog [header]="cabecario" [(visible)]="exibir" [modal]="true" [style]="{width: '30vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <div class="p-fluid p-formgrid p-grid"> 
+        <div class="field col-12 p-md-12">
+            <label>Nome</label>
+            <input id="nome" type="text" [(ngModel)]="animal.nome" pInputText>
             <small class="p-invalid p-error" *ngIf="validar && !animal.nome">Campo Obrigatório.</small>
         </div>
-        <div class="field col-12 md:col-6">
-            <label>Denominação *</label>
+        <div class="p-field p-col-12 p-md-12">
+            <label>Sexo</label>
+            <p-dropdown appendTo="body" inputId="genero" [options]="generos" [(ngModel)]="generoSelecionado" placeholder="-- Seleccionar --"></p-dropdown>
+        </div>
+        <div class="p-field p-col-12 p-md-12">
+            <label>Peso</label>
             <input id="denominacao" type="text" [(ngModel)]="animal.peso" pInputText>
             <small class="p-invalid p-error" *ngIf="validar && !animal.peso">Campo Obrigatório.</small>
-        </div>
-        <div class="field col-12 md:col-4">
-            <label>Sexo</label>
-            <p-dropdown appendTo="body" inputId="tipoDeFiliacao" [options]="generos" [(ngModel)]="generoSelecionado" placeholder="-- Seleccionar --"></p-dropdown>
         </div>
         
         <!-- <div class="fielld col-12">
@@ -71,8 +72,8 @@
         </div> -->
     </div>
     <ng-template pTemplate="footer">
-        <button type="button" pButton pRipple icon="pi pi-save"  (click)="salvar()" label="Salvar"></button>
         <button type="button" pButton pRipple icon="pi pi-times" (click)="cancelar()" label="Cancelar" class="p-button-danger"></button>
+        <button type="button" pButton pRipple icon="pi pi-save"  (click)="salvar()" label="Salvar"></button>
     </ng-template>
 </p-dialog>
 

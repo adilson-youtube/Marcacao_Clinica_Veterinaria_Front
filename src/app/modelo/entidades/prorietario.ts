@@ -8,7 +8,7 @@ export class Proprietario {
     nome?: string = '';
     telefone?: string = '';
     genero?: string = '';
-    dataNascimento?: Date = new Date();
+    dataNascimento?: Date;
     endereco?: Endereco = new Endereco();
     usuario?: Usuario = new Usuario();
     animais?: Array<Animal> = [];
