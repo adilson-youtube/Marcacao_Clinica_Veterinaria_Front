@@ -1,7 +1,7 @@
 <p-toast></p-toast>
 <!------------------------ tabela ------------------------------------>
 <p-card>
-    <h3>Dados de Acesso</h3>
+    <h3>Dados dos Animais</h3>
     <p-table #dt [value]="proprietario.animais" [rows]="5" [paginator]="true" [rowHover]="true" dataKey="id" [showCurrentPageReport]="true" 
             currentPageReportTemplate="{first} até {last} de {totalRecords} Animais" styleClass="p-datatable-customers p-datatable-gridlines">
         <ng-template pTemplate="caption">

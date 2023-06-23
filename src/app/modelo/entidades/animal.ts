@@ -7,7 +7,7 @@ export class Animal {
     nome?: string = '';
     sexo?: string = '';
     peso?: number;
-    dataNascimento?: Date;
+    dataNascimento?: Date = new Date();
     especie?: Especie = new Especie();
     // proprietario: Proprietario = new Proprietario();
     marcacoes?: Array<Marcacao> = [];

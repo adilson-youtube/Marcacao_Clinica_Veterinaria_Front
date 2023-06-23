@@ -47,13 +47,13 @@ export class DadosAnimalComponent implements OnInit {
 
   proximo(): void {
     this.proprietarioStep.setProprietario(this.proprietario);
-    this.router.navigate(['registarUsuario/confirmacao']);
+    this.router.navigate(['registarProrietario/confirmacao']);
   }
 
 
   retroceder(): void {
     this.proprietarioStep.setProprietario(this.proprietario);
-    this.router.navigate(['registarUsuario/pessoais']);
+    this.router.navigate(['registarProrietario/pessoais']);
   }
 
   get cabecario(): string {

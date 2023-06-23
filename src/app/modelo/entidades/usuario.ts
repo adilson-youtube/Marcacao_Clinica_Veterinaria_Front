@@ -8,8 +8,8 @@ export class Usuario {
     senha?: string = '';
     email?: string = '';
     role?: Role = Role.Usuario;
-    dataCriacao?: Date;
-    ultimoAcesso?: Date;
+    dataCriacao?: Date = new Date();
+    ultimoAcesso?: Date = new Date();
     // proprietario?: Proprietario = new Proprietario();
     // veterinario?: Veterinario = new Veterinario();
 }

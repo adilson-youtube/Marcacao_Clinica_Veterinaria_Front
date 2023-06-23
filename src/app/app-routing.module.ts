@@ -13,20 +13,30 @@ import { DadosUsuarioComponent } from './componentes/proprietario/registar-prori
 import { DadosPessoaisComponent } from './componentes/proprietario/registar-prorietario/dados-pessoais/dados-pessoais.component';
 import { DadosAnimalComponent } from './componentes/proprietario/registar-prorietario/dados-animal/dados-animal.component';
 import { ConfirmacaoComponent } from './componentes/proprietario/registar-prorietario/confirmacao/confirmacao.component';
+import { RegistarVeterinarioComponent } from './componentes/veterinario/registar-veterinario/registar-veterinario.component';
+import { DadosUsuarioVeterinarioComponent } from './componentes/veterinario/registar-veterinario/dados-usuario-veterinario/dados-usuario-veterinario.component';
+import { DadosPessoaisVeterinarioComponent } from './componentes/veterinario/registar-veterinario/dados-pessoais-veterinario/dados-pessoais-veterinario.component';
+import { ConfirmacaoVeterinarioComponent } from './componentes/veterinario/registar-veterinario/confirmacao-veterinario/confirmacao-veterinario.component';
 
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'marcacao', component: MarcacaoComponent },
-  // { path: 'prorpietario', component: ProprietarioComponent },
-  // { path: 'registarUsuario', component: CadastrarComponent },
-  { path: 'registarUsuario', component: RegistarProrietarioComponent, children: 
+  { path: 'registarProrietario', component: RegistarProrietarioComponent, children: 
     [
       {path: '', redirectTo: 'acesso', pathMatch: 'full'},
       {path: 'acesso', component: DadosUsuarioComponent},
       {path: 'pessoais', component: DadosPessoaisComponent},
       {path: 'animal', component: DadosAnimalComponent},
       {path: 'confirmacao', component: ConfirmacaoComponent}
+    ]
+  },
+  { path: 'registarVeterinario', component: RegistarVeterinarioComponent, children: 
+    [
+      {path: '', redirectTo: 'acesso-veterinario', pathMatch: 'full'},
+      {path: 'acesso-veterinario', component: DadosUsuarioVeterinarioComponent},
+      {path: 'pessoais-veterinario', component: DadosPessoaisVeterinarioComponent},
+      {path: 'confirmacao-veterinario', component: ConfirmacaoVeterinarioComponent}
     ]
   },
   { path: 'contactos', component: ContactosComponent },

@@ -1,31 +1,32 @@
 import { Injectable } from '@angular/core';
-import { ProprietariorepositorioService } from '../repositorios/proprietariorepositorio.service';
 import { Observable } from 'rxjs';
 import { Proprietario } from '../modelo/entidades/prorietario';
+import { VeterinariorepositorioService } from '../repositorios/veterinariorepositorio.service';
+import { Veterinario } from '../modelo/entidades/veterinario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VeterinarioservicoService {
 
-  constructor(private repositorio: ProprietariorepositorioService) { }
+  constructor(private repositorio: VeterinariorepositorioService) { }
 
   //-- Órgão
-    listarProprietarios(): Observable<Array<Proprietario>> {
-        return this.repositorio.listarProprietarios();
+  listarVeterinarios(): Observable<Array<Veterinario>> {
+        return this.repositorio.listarVeterinarios();
     }
   
-    salvarProprietario(usuario: Proprietario): Observable<Proprietario> {
-        return this.repositorio.salvarProprietario(usuario);
+    salvarVeterinario(veterinario: Veterinario): Observable<Veterinario> {
+        return this.repositorio.salvarVeterinario(veterinario);
     }
   
   //-- Área
-    procurarProprietarioPorId(codigo: number): Observable<Proprietario> {
-        return this.repositorio.procurarProprietarioPorId(codigo);
+  procurarVeterinarioPorId(id: number): Observable<Veterinario> {
+        return this.repositorio.procurarVeterinarioPorId(id);
     }
   
-    procurarProprietarioPorCodigo(codigo: string): Observable<Proprietario> {
-        return this.repositorio.procurarProprietarioPorCodigo(codigo);
+    procurarVeterinarioPorCodigo(codigo: string): Observable<Veterinario> {
+        return this.repositorio.procurarVeterinarioPorCodigo(codigo);
     }
 
 

@@ -13,14 +13,12 @@
             </p-divider>
             <div class="p-grid">
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Usuario</span>
-                    {{proprietario.usuario.usuario}}</div>
+                    {{veterinario.usuario.usuario}}</div>
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Emai:</span>
-                    {{proprietario.usuario.email}}</div>
+                    {{veterinario.usuario.email}}</div>
 
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Senha:</span>
-                    {{proprietario.usuario.senha}}</div>
-                <!-- <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Naturalidade:</span>
-                    {{ri.dadosPessoais?.naturalidade?.provincia}} - {{ri.dadosPessoais?.naturalidade?.municipio}} </div> -->
+                    {{veterinario.usuario.senha}}</div>
 
             </div>
 
@@ -33,43 +31,20 @@
             </p-divider>
             <div class="p-grid">
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Nome Completo:</span>
-                    {{proprietario.nome}}</div>
+                    {{veterinario.nome}}</div>
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Genero:</span>
-                    {{proprietario.genero}}</div>
-
-                <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Data de Nascimento:</span>
-                    {{proprietario.dataNascimento}}</div>
-                <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Telefone:</span>
+                    {{veterinario.genero}}</div>
+                <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Especialidade:</span>
+                    {{veterinario.especialidade}}</div>
+                <!-- <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Telefone:</span>
                     {{proprietario.telefone}}</div>
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Municipio:</span>
                     {{proprietario.endereco.municipio}}</div>
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Bairro:</span>
                     {{proprietario.endereco.bairro}}</div>
                 <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Rua:</span>
-                    {{proprietario.endereco.rua}}</div>
-                <!-- <div class="p-col-12 p-md-4 p-lg-4"><span style="font-weight: bold">Naturalidade:</span>
-                    {{ri.dadosPessoais?.naturalidade?.provincia}} - {{ri.dadosPessoais?.naturalidade?.municipio}} </div> -->
+                    {{proprietario.endereco.rua}}</div> -->
 
-            </div>
-
-            <!---------Dados Pessoais------------->
-            <p-divider align="left">
-                <div class="p-d-inline-flex p-ai-center">
-                    <i class="pi pi-user p-mr-2"></i>
-                    <b>Dados do Animal</b>
-                </div>
-            </p-divider>
-            <div class="p-grid">
-                <div class="p-d-inline-flex p-jc-center p-col-12 p-md-12 p-lg-12">
-                    <p-timeline [value]="this.proprietario.animais">
-                        <ng-template pTemplate="content" let-animal>
-                            <small class="p-text-secondary">Peso - {{animal.peso}} KG</small>
-                        </ng-template>
-                        <ng-template pTemplate="opposite" let-animal>
-                            Nome - {{animal.nome}}
-                        </ng-template>
-                    </p-timeline>
-                </div>
             </div>
 
         </ng-template>

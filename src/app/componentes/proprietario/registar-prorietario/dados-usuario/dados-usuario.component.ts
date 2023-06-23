@@ -38,7 +38,7 @@ export class DadosUsuarioComponent implements OnInit {
 
   proximo(): void {
     this.proprietarioStep.setProprietario(this.proprietario);
-    this.router.navigate(['registarUsuario/pessoais']);
+    this.router.navigate(['registarProrietario/pessoais']);
   }
 
   salvar(): void {

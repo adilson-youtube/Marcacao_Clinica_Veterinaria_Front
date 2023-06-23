@@ -38,14 +38,15 @@ export class DadosPessoaisComponent implements OnInit {
 
   proximo(): void {
     this.proprietario.genero = this.generoSelecionado.name;
+    console.log(this.proprietario.genero)
     this.proprietarioStep.setProprietario(this.proprietario);
-    this.router.navigate(['registarUsuario/animal']);
+    this.router.navigate(['registarProrietario/animal']);
   }
 
 
   retroceder(): void {
     this.proprietarioStep.setProprietario(this.proprietario);
-    this.router.navigate(['registarUsuario/acesso']);
+    this.router.navigate(['registarProrietario/acesso']);
   }
 
 }

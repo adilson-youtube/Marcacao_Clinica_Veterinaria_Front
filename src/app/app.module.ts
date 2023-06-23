@@ -46,6 +46,7 @@ import {StepsModule} from 'primeng/steps';
 import {SplitterModule} from 'primeng/splitter';
 import {DividerModule} from 'primeng/divider';
 import {TimelineModule} from 'primeng/timeline';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 
 import { MenuItem } from 'primeng/api';
@@ -90,6 +91,11 @@ import { RegistarProrietarioComponent } from './componentes/proprietario/regista
 import { DadosPessoaisComponent } from './componentes/proprietario/registar-prorietario/dados-pessoais/dados-pessoais.component';
 import { DadosUsuarioComponent } from './componentes/proprietario/registar-prorietario/dados-usuario/dados-usuario.component';
 import { DadosAnimalComponent } from './componentes/proprietario/registar-prorietario/dados-animal/dados-animal.component';
+import { VeterinarioComponent } from './componentes/veterinario/veterinario.component';
+import { RegistarVeterinarioComponent } from './componentes/veterinario/registar-veterinario/registar-veterinario.component';
+import { DadosUsuarioVeterinarioComponent } from './componentes/veterinario/registar-veterinario/dados-usuario-veterinario/dados-usuario-veterinario.component';
+import { DadosPessoaisVeterinarioComponent } from './componentes/veterinario/registar-veterinario/dados-pessoais-veterinario/dados-pessoais-veterinario.component';
+import { ConfirmacaoVeterinarioComponent } from './componentes/veterinario/registar-veterinario/confirmacao-veterinario/confirmacao-veterinario.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +127,11 @@ import { DadosAnimalComponent } from './componentes/proprietario/registar-prorie
     DadosPessoaisComponent,
     DadosUsuarioComponent,
     DadosAnimalComponent,
+    VeterinarioComponent,
+    RegistarVeterinarioComponent,
+    DadosUsuarioVeterinarioComponent,
+    DadosPessoaisVeterinarioComponent,
+    ConfirmacaoVeterinarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -175,7 +186,8 @@ import { DadosAnimalComponent } from './componentes/proprietario/registar-prorie
     StepsModule,
     SplitterModule,
     DividerModule,
-    TimelineModule
+    TimelineModule,
+    MultiSelectModule
   ],
   providers: [ConfirmationService, AuthenticationService],
   bootstrap: [AppComponent]
