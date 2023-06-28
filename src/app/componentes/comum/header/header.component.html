@@ -29,10 +29,10 @@
             <button class="texts-color" mat-button routerLink="/marcacao"><mat-icon class="icons-color"> home
                 </mat-icon>INICIO</button>
 
-            <button class="texts-color" mat-button [matMenuTriggerFor]="afterMenu1" (mouseenter)="afterMenu1.openMenu()" (mouseleave)="afterMenu1.closeMenu()"><mat-icon class="icons-color">
+            <button class="texts-color" mat-button [matMenuTriggerFor]="menuServicos"><mat-icon class="icons-color">
                     public </mat-icon>NOSSOS SERVIÇOS</button>
-            <mat-menu class="custom-menu" #afterMenu1="matMenu" xPosition="after">
-                <button class="texts-color" mat-menu-item routerLink="registar/requerente"><mat-icon
+            <mat-menu class="custom-menu" #menuServicos="matMenu" xPosition="after">
+                <button class="texts-color" mat-menu-item routerLink="registarServico"><mat-icon
                         class="icons-color"> person_add </mat-icon>REGISTAR SERVIÇOS</button>
                 <button class="texts-color" mat-menu-item routerLink="pesquisar"><mat-icon class="icons-color">
                         person_search </mat-icon>PESQUISAR SERVIÇOS</button>

@@ -17,10 +17,12 @@ import { RegistarVeterinarioComponent } from './componentes/veterinario/registar
 import { DadosUsuarioVeterinarioComponent } from './componentes/veterinario/registar-veterinario/dados-usuario-veterinario/dados-usuario-veterinario.component';
 import { DadosPessoaisVeterinarioComponent } from './componentes/veterinario/registar-veterinario/dados-pessoais-veterinario/dados-pessoais-veterinario.component';
 import { ConfirmacaoVeterinarioComponent } from './componentes/veterinario/registar-veterinario/confirmacao-veterinario/confirmacao-veterinario.component';
+import { ServicosComponent } from './componentes/servicos/servicos.component';
 
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
+  { path: 'registarServico', component: ServicosComponent },
   { path: 'marcacao', component: MarcacaoComponent },
   { path: 'registarProrietario', component: RegistarProrietarioComponent, children: 
     [
