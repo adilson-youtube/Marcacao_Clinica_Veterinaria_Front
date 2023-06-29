@@ -7,7 +7,7 @@
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-nogutter p-jc-between">
                 <button pButton label="Todos" class="p-button-outlined" icon="pi pi-filter-slash" (click)="limparTabela(dt)"></button>
-                <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded" (click)="salvarServico()" pTooltip="Novo" tooltipPosition="bottom"></button>
+                <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded" (click)="modal()" pTooltip="Novo" tooltipPosition="bottom"></button>
                 <!-- <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded" (click)="modal()" pTooltip="Novo" tooltipPosition="bottom"></button> -->
             </div>
         </ng-template>
@@ -28,8 +28,8 @@
         </ng-template>
         <ng-template pTemplate="body" let-servico>
             <tr>
-                <td>{{servico.tipoServico}}</td>
-                <td>{{servico.preco}}</td>
+                <td>{{servico?.tipoServico}}</td>
+                <td>{{servico?.preco}}</td>
                 <td style="text-align:center">
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-text" (click)="modal(proprietario.animais)" pTooltip="Editar" tooltipPosition="bottom"></button>
                 </td>
@@ -51,11 +51,11 @@
 </p-card>
 
 <!---------------------------- modal -------------------------------->
-<!-- <p-dialog [header]="cabecario" [(visible)]="exibir" [modal]="true" [style]="{width: '30vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+<p-dialog [header]="cabecario" [(visible)]="exibir" [modal]="true" [style]="{width: '30vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
     <div class="p-fluid p-formgrid p-grid"> 
         <div class="field col-12 p-md-12">
-            <label>Nome</label>
-            <input id="nome" type="text" [(ngModel)]="servico.tipoServico" pInputText>
+            <label>Tipo de Serviço</label>
+            <input id="tipoServico" type="text" [(ngModel)]="servico.tipoServico" pInputText>
             <small class="p-invalid p-error" *ngIf="validar && !servico.tipoServico">Campo Obrigatório.</small>
         </div>
         <div class="p-field p-col-12 p-md-12">
@@ -63,18 +63,18 @@
             <p-dropdown appendTo="body" inputId="genero" [options]="generos" [(ngModel)]="generoSelecionado" placeholder="-- Seleccionar --"></p-dropdown>
         </div>
         <div class="p-field p-col-12 p-md-12">
-            <label>Peso</label>
-            <input id="denominacao" type="text" [(ngModel)]="servico.preco" pInputText>
+            <label>Preço</label>
+            <input id="preco" type="text" [(ngModel)]="servico.preco" pInputText>
             <small class="p-invalid p-error" *ngIf="validar && !servico.preco">Campo Obrigatório.</small>
         </div>
         
         <div class="fielld col-12">
-            <p-messages [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'"></p-messages>
+            <!-- <p-messages [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'"></p-messages> -->
         </div>
     </div>
     <ng-template pTemplate="footer">
         <button type="button" pButton pRipple icon="pi pi-times" (click)="cancelar()" label="Cancelar" class="p-button-danger"></button>
         <button type="button" pButton pRipple icon="pi pi-save"  (click)="salvar()" label="Salvar"></button>
     </ng-template>
-</p-dialog> -->
+</p-dialog>
 

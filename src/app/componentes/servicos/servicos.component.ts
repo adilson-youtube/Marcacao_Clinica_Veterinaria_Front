@@ -22,7 +22,7 @@ export class ServicosComponent implements OnInit {
   validar: boolean = false;
 
   servicos: Servico[];
-  servico: any;
+  servico: Servico;
   // animal = new Animal();
 
   
@@ -49,21 +49,21 @@ export class ServicosComponent implements OnInit {
     private messageService: MessageService
   ) 
   { 
-    this.cirurgia.preco = 94000; this.cirurgia.tipoServico = "Cirurgia Abdominal";
-    this.exame.preco = 49000; this.exame.tipoServico = "Exame Geral";
-    this.consulta.preco = 34000; this.consulta.tipoServico = "Consulta Interna"; this.consulta.marcacoes = [new Marcacao()];
-    this.vacina.preco = 11000; this.vacina.tipoServico = "Vacina Periodica";
+    // this.cirurgia.preco = 94000; this.cirurgia.tipoServico = "Cirurgia Abdominal";
+    // this.exame.preco = 49000; this.exame.tipoServico = "Exame Geral";
+    // this.consulta.preco = 34000; this.consulta.tipoServico = "Consulta Externa";
+    // this.vacina.preco = 11000; this.vacina.tipoServico = "Vacina Periodica";
     
-    this.servicos = [
-      this.cirurgia, this.exame, this.consulta, this.vacina
-    ];
+    // this.servicos = [
+    //   this.cirurgia, this.exame, this.consulta, this.vacina
+    // ];
   }
 
   ngOnInit(): void {
-    // this.servicosService.listarServicos().subscribe( servicos => {
-    //   this.servicos = servicos;
-    //   console.log(this.servicos);
-    // });
+    this.servicosService.listarServicos().subscribe( servicos => {
+      this.servicos = servicos;
+      console.log(this.servicos);
+    });
   }
 
   get cabecario(): string {
@@ -71,18 +71,18 @@ export class ServicosComponent implements OnInit {
   }
 
   salvarServico() {
-    this.servicosService.salvarServico(this.consulta).subscribe( res => {      
+    this.servicosService.salvarConsulta(this.consulta).subscribe( res => {      
       console.log("Consulta salva com Sucesso: "+res);
     });
 
   }
 
-  // modal(servico?: Servico): void  {
-  //   this.nova = servico ? false : true;
-  //   this.animal = this.nova ? new Animal() : animal ?? new Animal();
-  //   this.exibir = true;
-  //   this.validar = false;
-  // }
+  modal(servico?: Servico): void  {
+    this.nova = servico ? false : true;
+    // this.servico = this.nova ? new Servico() : animal ?? new Servico();
+    this.exibir = true;
+    this.validar = false;
+  }
 
   // cancelar(): void  {
   //   this.exibir = false;

@@ -110,9 +110,9 @@ export class ServicosrepositorioService {
     return this.http.get<Consulta>(`${this.baseUrl}${path}`);
   }
 
-  salvarConsulta(consulta: Consulta): Observable<Consulta> {
+  salvarConsulta(consulta: Servico): Observable<Servico> {
     const path = `Consulta`;
-    return this.http.post<Consulta>(`${this.baseUrl}${path}`, consulta);
+    return this.http.post<Servico>(`${this.baseUrl}${path}`, consulta);
   }
 
   actualizarConsulta(id: number, consulta: Consulta): Observable<Consulta> {
