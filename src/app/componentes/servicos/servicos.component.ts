@@ -4,6 +4,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { Cirurgia } from 'src/app/modelo/entidades/cirurgia';
 import { Consulta } from 'src/app/modelo/entidades/consulta';
 import { Exame } from 'src/app/modelo/entidades/exame';
+import { Marcacao } from 'src/app/modelo/entidades/marcacao';
 import { Servico } from 'src/app/modelo/entidades/servico';
 import { Vacina } from 'src/app/modelo/entidades/vacina';
 import { ServicosService } from 'src/app/servicos/servicos.service';
@@ -50,7 +51,7 @@ export class ServicosComponent implements OnInit {
   { 
     this.cirurgia.preco = 94000; this.cirurgia.tipoServico = "Cirurgia Abdominal";
     this.exame.preco = 49000; this.exame.tipoServico = "Exame Geral";
-    this.consulta.preco = 34000; this.consulta.tipoServico = "Consulta Interna";
+    this.consulta.preco = 34000; this.consulta.tipoServico = "Consulta Interna"; this.consulta.marcacoes = [new Marcacao()];
     this.vacina.preco = 11000; this.vacina.tipoServico = "Vacina Periodica";
     
     this.servicos = [

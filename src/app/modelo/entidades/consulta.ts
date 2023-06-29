@@ -2,9 +2,9 @@ import { Servico } from "./servico";
 
 
 export class Consulta extends Servico {
-    id = 0;
+    //id = 0;
     // tipoConsulta: string = '';
-    descricao: string = '';
+    descricao: string = 'Consulta para cliente!';
 
     constructor() {
         super();
