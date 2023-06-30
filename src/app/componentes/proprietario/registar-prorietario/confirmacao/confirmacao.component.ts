@@ -51,7 +51,7 @@ export class ConfirmacaoComponent implements OnInit {
 
   retroceder(): void {
     this.proprietarioStep.setProprietario(this.proprietario);
-    this.router.navigate(['registarUsuario/animal']);
+    this.router.navigate(['registarProrietario/animal']);
   }
 
   get cabecario(): string {

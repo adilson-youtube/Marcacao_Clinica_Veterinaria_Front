@@ -7,6 +7,7 @@ import { Exame } from 'src/app/modelo/entidades/exame';
 import { Marcacao } from 'src/app/modelo/entidades/marcacao';
 import { Servico } from 'src/app/modelo/entidades/servico';
 import { Vacina } from 'src/app/modelo/entidades/vacina';
+import { TipoPagamento } from 'src/app/modelo/enumerados/tipopagamento';
 import { ServicosService } from 'src/app/servicos/servicos.service';
 
 @Component({
@@ -22,7 +23,14 @@ export class ServicosComponent implements OnInit {
   validar: boolean = false;
 
   servicos: Servico[];
-  servico: Servico;
+
+  tiposServicos: any[] = [
+      {name: "Consulta", code: "Consulta"},
+      {name: 'Cirurgia', code: 'Cirurgia'},
+      {name: 'Exame', code: 'Exame'},
+      {name: 'Vacina', code: 'Vacina'}
+  ];
+  servico: Servico = new Consulta();
   // animal = new Animal();
 
   
@@ -31,14 +39,21 @@ export class ServicosComponent implements OnInit {
   consulta: Servico = new Consulta();
   vacina: Servico = new Vacina();
 
-  generoSelecionado: any = {};
+  tipoPagamentoSelecionado: TipoPagamento;
+  servicoSelecionado: any = {}; 
 
   dateValue: Date = new Date;
 
-  generos: any[] = [
-      {name: 'Macho', code: 'Macho'},
-      {name: 'Femia', code: 'Femia'}
+  tiposPagamentos: any[] = [
+      {name: 'Cash', code: 0},
+      {name: 'Cartão', code: 1},
+      {name: 'Carteira Digital', code: 2}
   ];
+
+  // generos: any[] = [
+  //     {name: 'Macho', code: 'Macho'},
+  //     {name: 'Femia', code: 'Femia'}
+  // ];
 
   items: MenuItem[] = [];
 
@@ -67,47 +82,54 @@ export class ServicosComponent implements OnInit {
   }
 
   get cabecario(): string {
-    return (this.nova ? 'Registar' : 'Editar') + ' Animal';
+    return (this.nova ? 'Registar' : 'Editar') + ' Serviço';
   }
 
-  salvarServico() {
-    this.servicosService.salvarConsulta(this.consulta).subscribe( res => {      
-      console.log("Consulta salva com Sucesso: "+res);
-    });
-
-  }
+  // salvarServico() {
+  //   this.servicosService.salvarConsulta(this.consulta).subscribe( res => {      
+  //     console.log("Consulta salva com Sucesso: "+res);
+  //   });
+  // }
 
   modal(servico?: Servico): void  {
     this.nova = servico ? false : true;
-    // this.servico = this.nova ? new Servico() : animal ?? new Servico();
+    this.servico = this.nova ? new Consulta() : servico ?? new Consulta();
     this.exibir = true;
     this.validar = false;
+    console.log("Dados da Consulta: "+JSON.stringify(this.servico));
   }
 
-  // cancelar(): void  {
-  //   this.exibir = false;
-  //   this.validar = false;
-  //   this.animal = new Animal();
-  // }
+  cancelar(): void  {
+    this.exibir = false;
+    this.validar = false;
+    this.servico = null;
+    // this.animal = new Animal();
+  }
 
-  // salvar(): void  {
-  //   this.validar = true;
-  //   let lista = this.proprietario.animais.find(a => a.nome?.toUpperCase() === this.animal.nome?.toUpperCase())?.nome;
-
-  //   if (this.nova) {
-  //     if (!lista) {
-  //       this.animal.sexo = this.generos[0].name;
-  //       this.proprietario.animais.unshift(this.animal); 
-  //       this.limparCampos();
-  //       this.mensagem('success', 'Animal registado com sucesso');
-  //       // this.timeOut();
-  //     } else {
-  //       this. mensagem('warn', 'Animal já encontra-se registado');
-  //       this.timeOut();
-  //     }
-  //   }
+  salvar(): void  {
+    this.validar = true;
     
-  // }
+    // this.servico.tipoServico = servicoDialogo.;
+    this.servico.tipoPagamento = this.tipoPagamentoSelecionado;
+    let lista = this.servicos.find(a => a.tipoServico?.toUpperCase() === this.servico.tipoServico?.toUpperCase())?.tipoServico;
+    // let lista = this.servicos.find(a => console.log("Dados da Consulta: "+JSON.stringify(a)));
+    // console.log("Dados da Consulta: "+JSON.stringify(this.servico));
+    // console.log("Lista de Consulta: "+JSON.stringify(lista));
+
+    if (this.nova) {
+      if (this.nova) {
+        // this.servico.tipoPagamento = this.tipoPagamentoSelecionado;
+        this.servicos.unshift(this.servico); 
+        this.limparCampos();
+        this.mensagem('success', 'Serviço registado com sucesso');
+        // this.timeOut();
+      } else {
+        this. mensagem('warn', 'Serviço já encontra-se registado');
+        this.timeOut();
+      }
+    }
+    
+  }
 
   timeOut(){
     setTimeout(() =>{ this.messageService.clear(); }, 30000);
@@ -117,9 +139,10 @@ export class ServicosComponent implements OnInit {
     this.messageService.add({severity: tipo, detail: msg});
   }
 
-  // limparCampos() {
-  //   this.validar = false;
-  //   this.animal = new Animal();
-  // }
+  limparCampos() {
+    this.validar = false;
+    this.servico = null;
+    // this.animal = new Animal();
+  }
 
 }

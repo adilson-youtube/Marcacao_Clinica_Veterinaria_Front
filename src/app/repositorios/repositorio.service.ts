@@ -5,7 +5,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Area } from '../modelo/entidades/area';
 import { Orgao } from '../modelo/entidades/orgao';
 import { Contacto } from '../modelo/entidades/contacto';
-import { DadosDeUso } from '../modelo/entidades/dadosdeuso';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

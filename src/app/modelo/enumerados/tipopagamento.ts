@@ -1,3 +1,3 @@
 export enum TipoPagamento {
-    Cash, Cartao, Secretario, CarteiraDigital
+    Cash, Cartao, CarteiraDigital
 }

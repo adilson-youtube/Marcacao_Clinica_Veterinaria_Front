@@ -31,7 +31,7 @@
                 <td>{{servico?.tipoServico}}</td>
                 <td>{{servico?.preco}}</td>
                 <td style="text-align:center">
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-text" (click)="modal(proprietario.animais)" pTooltip="Editar" tooltipPosition="bottom"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-text" (click)="modal(servico)" pTooltip="Editar" tooltipPosition="bottom"></button>
                 </td>
             </tr>
         </ng-template>
@@ -51,21 +51,42 @@
 </p-card>
 
 <!---------------------------- modal -------------------------------->
-<p-dialog [header]="cabecario" [(visible)]="exibir" [modal]="true" [style]="{width: '30vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+<p-dialog #servicoDialogo [header]="cabecario" [(visible)]="exibir" [modal]="true" [style]="{width: '40vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
     <div class="p-fluid p-formgrid p-grid"> 
+        <div class="p-field p-col-12 p-md-12">
+            <label>Seleciona o Serviço</label>
+            <p-dropdown optionLabel="name" optionValue="code" appendTo="body" inputId="genero" [options]="tiposServicos" [(ngModel)]="servicoSelecionado" placeholder="-- Seleccionar --"></p-dropdown>
+        </div>
         <div class="field col-12 p-md-12">
             <label>Tipo de Serviço</label>
             <input id="tipoServico" type="text" [(ngModel)]="servico.tipoServico" pInputText>
             <small class="p-invalid p-error" *ngIf="validar && !servico.tipoServico">Campo Obrigatório.</small>
         </div>
         <div class="p-field p-col-12 p-md-12">
-            <label>Sexo</label>
-            <p-dropdown appendTo="body" inputId="genero" [options]="generos" [(ngModel)]="generoSelecionado" placeholder="-- Seleccionar --"></p-dropdown>
+            <label>Preço</label>
+            <p-inputNumber [(ngModel)]="servico.preco" [showButtons]="true" mode="decimal" [minFractionDigits]="2" suffix=" KZ"></p-inputNumber>
+            <!-- <input id="preco" type="text" [(ngModel)]="servico.preco" pInputText> -->
+            <small class="p-invalid p-error" *ngIf="validar && !servico.preco">Campo Obrigatório.</small>
         </div>
         <div class="p-field p-col-12 p-md-12">
-            <label>Preço</label>
-            <input id="preco" type="text" [(ngModel)]="servico.preco" pInputText>
-            <small class="p-invalid p-error" *ngIf="validar && !servico.preco">Campo Obrigatório.</small>
+            <label>Tipo de Pagamento</label>
+            <p-dropdown optionLabel="name" optionValue="code" appendTo="body" inputId="genero" [options]="tiposPagamentos" [(ngModel)]="tipoPagamentoSelecionado" placeholder="-- Seleccionar --"></p-dropdown>
+        </div>
+        <div *ngIf="(servicoSelecionado === 'Consulta'||servicoSelecionado === 'Cirurgia'||servicoSelecionado === 'Exame')" class="p-field p-col-12 p-md-12">
+            <label>Observação</label>
+            <input id="descricao" type="text" [(ngModel)]="servico.descricao" pInputText>
+            <small class="p-invalid p-error" *ngIf="validar && !servico.descricao">Campo Obrigatório.</small>
+        </div>
+        <div *ngIf="(servicoSelecionado === 'Vacina')" class="p-field p-col-12 p-md-12">
+            <label>Nome</label>
+            <input id="nome" type="text" [(ngModel)]="servico.nome" pInputText>
+            <small class="p-invalid p-error" *ngIf="validar && !servico.nome">Campo Obrigatório.</small>
+        </div>
+        <div *ngIf="(servicoSelecionado === 'Vacina')" class="p-field p-col-12 p-md-12">
+            <label>Periodo</label>
+            <p-calendar appendTo="body" [(ngModel)]="servico.periodo" showButtonBar="true" showIcon="true"></p-calendar>
+            <!-- <input id="periodo" type="text" [(ngModel)]="servico.periodo" pInputText> -->
+            <small class="p-invalid p-error" *ngIf="validar && !servico.periodo">Campo Obrigatório.</small>
         </div>
         
         <div class="fielld col-12">
