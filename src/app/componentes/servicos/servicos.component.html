@@ -84,8 +84,9 @@
         </div>
         <div *ngIf="(servicoSelecionado === 'Vacina')" class="p-field p-col-12 p-md-12">
             <label>Periodo</label>
-            <p-calendar appendTo="body" [(ngModel)]="servico.periodo" showButtonBar="true" showIcon="true"></p-calendar>
+            <!--<p-calendar appendTo="body" [(ngModel)]="servico.periodo" showButtonBar="true" showIcon="true"></p-calendar>-->
             <!-- <input id="periodo" type="text" [(ngModel)]="servico.periodo" pInputText> -->
+            <p-inputNumber [(ngModel)]="servico.periodo"></p-inputNumber>
             <small class="p-invalid p-error" *ngIf="validar && !servico.periodo">Campo Obrigatório.</small>
         </div>
         

@@ -41,7 +41,7 @@ export class ServicosrepositorioService {
 
   eliminarServico(id: number): Observable<Servico> {
     const path = `Servico/${id}`;
-    return this.http.delete<Exame>(`${this.baseUrl}${path}`);
+    return this.http.delete<Servico>(`${this.baseUrl}${path}`);
   }
 
 
@@ -56,7 +56,7 @@ export class ServicosrepositorioService {
     return this.http.get<Exame>(`${this.baseUrl}${path}`);
   }
 
-  salvarExame(exame: Exame): Observable<Exame> {
+  salvarExame(exame: Servico): Observable<Exame> {
     const path = `Exame`;
     return this.http.post<Exame>(`${this.baseUrl}${path}`, exame);
   }
@@ -83,7 +83,7 @@ export class ServicosrepositorioService {
     return this.http.get<Cirurgia>(`${this.baseUrl}${path}`);
   }
 
-  salvarCirurgia(cirurgia: Cirurgia): Observable<Cirurgia> {
+  salvarCirurgia(cirurgia: Servico): Observable<Cirurgia> {
     const path = `Cirurgia`;
     return this.http.post<Cirurgia>(`${this.baseUrl}${path}`, cirurgia);
   }
@@ -137,7 +137,7 @@ export class ServicosrepositorioService {
     return this.http.get<Vacina>(`${this.baseUrl}${path}`);
   }
 
-  salvarVacina(vacina: Vacina): Observable<Vacina> {
+  salvarVacina(vacina: Servico): Observable<Vacina> {
     const path = `Vacina`;
     return this.http.post<Vacina>(`${this.baseUrl}${path}`, vacina);
   }

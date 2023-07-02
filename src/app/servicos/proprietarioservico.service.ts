@@ -10,23 +10,31 @@ export class ProprietarioservicoService {
 
   constructor(private repositorio: ProprietariorepositorioService) { }
 
-  //-- Órgão
+  //-- Proprietario
     listarProprietarios(): Observable<Array<Proprietario>> {
         return this.repositorio.listarProprietarios();
     }
-  
-    salvarProprietario(usuario: Proprietario): Observable<Proprietario> {
-        return this.repositorio.salvarProprietario(usuario);
-    }
-  
-  //-- Área
+
     procurarProprietarioPorId(codigo: number): Observable<Proprietario> {
         return this.repositorio.procurarProprietarioPorId(codigo);
+    }
+  
+    salvarProprietario(proprietario: Proprietario): Observable<Proprietario> {
+        return this.repositorio.salvarProprietario(proprietario);
     }
   
     procurarProprietarioPorCodigo(codigo: string): Observable<Proprietario> {
         return this.repositorio.procurarProprietarioPorCodigo(codigo);
     }
+  
+    actualizarProprietario(id: number, proprietario: Proprietario): Observable<Proprietario> {
+        return this.repositorio.actualizarProprietario(id, proprietario);
+    }
+  
+    eliminarProprietario(id: number): Observable<Proprietario> {
+        return this.repositorio.eliminarProprietario(id);
+    }
+
 
 
 }

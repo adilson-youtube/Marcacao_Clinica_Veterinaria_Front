@@ -6,7 +6,7 @@
                 <img class="logo p-col-6" src="assets/images/LogoClinica2.png" alt="logo">
                 <span class="item-spacer"></span>
                 <div>
-                    <h2 style="color: rgb(137, 53, 82);">URGÊNCIAS 24H 923 406 340</h2>
+                    <h2 style="color: rgb(137, 53, 82);">URGÊNCIAS 24H 929 529 551</h2>
                     <h5 style="color: rgb(137, 53, 82);">Estamos disponíveis 24H na clínica ou em domicílios.</h5>
                 </div>
                 <span class="item-spacer"></span>
@@ -26,12 +26,14 @@
         <div>
 
 
-            <button class="texts-color" mat-button routerLink="/marcacao"><mat-icon class="icons-color"> home
+            <button class="texts-color" mat-button routerLink=""><mat-icon class="icons-color"> home
                 </mat-icon>INICIO</button>
 
             <button class="texts-color" mat-button [matMenuTriggerFor]="menuServicos"><mat-icon class="icons-color">
                     public </mat-icon>NOSSOS SERVIÇOS</button>
             <mat-menu class="custom-menu" #menuServicos="matMenu" xPosition="after">
+                <button class="texts-color" mat-menu-item routerLink="marcacao"><mat-icon
+                        class="icons-color"> person_add </mat-icon>FAZER MARCAÇÃO</button>
                 <button class="texts-color" mat-menu-item routerLink="registarServico"><mat-icon
                         class="icons-color"> person_add </mat-icon>REGISTAR SERVIÇOS</button>
                 <button class="texts-color" mat-menu-item routerLink="pesquisar"><mat-icon class="icons-color">

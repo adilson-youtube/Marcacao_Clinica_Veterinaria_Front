@@ -25,29 +25,29 @@ export class ServicosComponent implements OnInit {
   servicos: Servico[];
 
   tiposServicos: any[] = [
-      {name: "Consulta", code: "Consulta"},
-      {name: 'Cirurgia', code: 'Cirurgia'},
-      {name: 'Exame', code: 'Exame'},
-      {name: 'Vacina', code: 'Vacina'}
+    { name: "Consulta", code: "Consulta" },
+    { name: 'Cirurgia', code: 'Cirurgia' },
+    { name: 'Exame', code: 'Exame' },
+    { name: 'Vacina', code: 'Vacina' }
   ];
   servico: Servico = new Consulta();
   // animal = new Animal();
 
-  
+
   cirurgia: Servico = new Cirurgia();
   exame: Servico = new Exame();
   consulta: Servico = new Consulta();
   vacina: Servico = new Vacina();
 
   tipoPagamentoSelecionado: TipoPagamento;
-  servicoSelecionado: any = {}; 
+  servicoSelecionado: any = {};
 
   dateValue: Date = new Date;
 
   tiposPagamentos: any[] = [
-      {name: 'Cash', code: 0},
-      {name: 'Cartão', code: 1},
-      {name: 'Carteira Digital', code: 2}
+    { name: 'Cash', code: 0 },
+    { name: 'Cartão', code: 1 },
+    { name: 'Carteira Digital', code: 2 }
   ];
 
   // generos: any[] = [
@@ -57,25 +57,24 @@ export class ServicosComponent implements OnInit {
 
   items: MenuItem[] = [];
 
-  
+
   constructor(
     private router: Router,
     private servicosService: ServicosService,
     private messageService: MessageService
-  ) 
-  { 
+  ) {
     // this.cirurgia.preco = 94000; this.cirurgia.tipoServico = "Cirurgia Abdominal";
     // this.exame.preco = 49000; this.exame.tipoServico = "Exame Geral";
     // this.consulta.preco = 34000; this.consulta.tipoServico = "Consulta Externa";
     // this.vacina.preco = 11000; this.vacina.tipoServico = "Vacina Periodica";
-    
+
     // this.servicos = [
     //   this.cirurgia, this.exame, this.consulta, this.vacina
     // ];
   }
 
   ngOnInit(): void {
-    this.servicosService.listarServicos().subscribe( servicos => {
+    this.servicosService.listarServicos().subscribe(servicos => {
       this.servicos = servicos;
       console.log(this.servicos);
     });
@@ -85,30 +84,30 @@ export class ServicosComponent implements OnInit {
     return (this.nova ? 'Registar' : 'Editar') + ' Serviço';
   }
 
-  // salvarServico() {
-  //   this.servicosService.salvarConsulta(this.consulta).subscribe( res => {      
-  //     console.log("Consulta salva com Sucesso: "+res);
-  //   });
-  // }
+  salvarServico() {
+    this.servicosService.salvarConsulta(this.consulta).subscribe(res => {
+      console.log("Consulta salva com Sucesso: " + res);
+    });
+  }
 
-  modal(servico?: Servico): void  {
+  modal(servico?: Servico): void {
     this.nova = servico ? false : true;
     this.servico = this.nova ? new Consulta() : servico ?? new Consulta();
     this.exibir = true;
     this.validar = false;
-    console.log("Dados da Consulta: "+JSON.stringify(this.servico));
+    console.log("Dados da Consulta: " + JSON.stringify(this.servico));
   }
 
-  cancelar(): void  {
+  cancelar(): void {
     this.exibir = false;
     this.validar = false;
     this.servico = null;
     // this.animal = new Animal();
   }
 
-  salvar(): void  {
+  salvar(): void {
     this.validar = true;
-    
+
     // this.servico.tipoServico = servicoDialogo.;
     this.servico.tipoPagamento = this.tipoPagamentoSelecionado;
     let lista = this.servicos.find(a => a.tipoServico?.toUpperCase() === this.servico.tipoServico?.toUpperCase())?.tipoServico;
@@ -117,32 +116,81 @@ export class ServicosComponent implements OnInit {
     // console.log("Lista de Consulta: "+JSON.stringify(lista));
 
     if (this.nova) {
-      if (this.nova) {
+      if (!lista) {
         // this.servico.tipoPagamento = this.tipoPagamentoSelecionado;
-        this.servicos.unshift(this.servico); 
-        this.limparCampos();
-        this.mensagem('success', 'Serviço registado com sucesso');
-        // this.timeOut();
+        // this.servicos.unshift(this.servico);
+        switch (this.servicoSelecionado) {
+          case 'Consulta': {
+            this.servicosService.salvarConsulta(this.servico).subscribe(res => {
+              console.log("Consulta salva com Sucesso: " + res);
+              this.limparCampos();
+              this.mensagem('success', 'Serviço registado com sucesso');
+              this.timeOut();
+              this.refresh();
+            });
+
+            break;
+          }
+          case 'Cirurgia': {
+            this.servicosService.salvarCirurgia(this.servico).subscribe(res => {
+              console.log("Consulta salva com Sucesso: " + res);
+              this.limparCampos();
+              this.mensagem('success', 'Serviço registado com sucesso');
+              this.timeOut();
+              this.refresh();
+            });
+
+            break;
+          }
+          case 'Exame': {
+            this.servicosService.salvarExame(this.servico).subscribe(res => {
+              console.log("Consulta salva com Sucesso: " + res);
+              this.limparCampos();
+              this.mensagem('success', 'Serviço registado com sucesso');
+              this.timeOut();
+              this.refresh();
+            });
+
+            break;
+          }
+          case 'Vacina': {
+            this.servicosService.salvarVacina(this.servico).subscribe(res => {
+              console.log("Consulta salva com Sucesso: " + res);
+              this.limparCampos();
+              this.mensagem('success', 'Serviço registado com sucesso');
+              this.timeOut();
+              this.refresh();
+            });
+
+            break;
+          }
+          default:
+            break;
+        }
       } else {
-        this. mensagem('warn', 'Serviço já encontra-se registado');
+        this.mensagem('warn', 'Serviço já encontra-se registado');
         this.timeOut();
       }
     }
-    
+
   }
 
-  timeOut(){
-    setTimeout(() =>{ this.messageService.clear(); }, 30000);
+  timeOut() {
+    setTimeout(() => { this.messageService.clear(); }, 30000);
   }
 
-  mensagem(tipo: string, msg: string){
-    this.messageService.add({severity: tipo, detail: msg});
+  mensagem(tipo: string, msg: string) {
+    this.messageService.add({ severity: tipo, detail: msg });
   }
 
   limparCampos() {
     this.validar = false;
     this.servico = null;
     // this.animal = new Animal();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }
