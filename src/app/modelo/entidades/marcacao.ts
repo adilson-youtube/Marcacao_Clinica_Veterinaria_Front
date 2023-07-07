@@ -1,11 +1,11 @@
-import { Servico } from "src/app/servicos/servico.service";
 import { Role } from "../enumerados/Role";
 import { Animal } from "./animal";
 import { Endereco } from "./endereco";
+import { Servico } from "./servico";
 import { Veterinario } from "./veterinario";
 
 export class Marcacao {
-    id = 0;
+    // id = 0;
     diaSemana: Date = new Date();
     diaMes: Date = new Date();
     ano: Date = new Date();

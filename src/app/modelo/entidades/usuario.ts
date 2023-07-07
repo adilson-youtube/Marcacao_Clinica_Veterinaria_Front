@@ -3,7 +3,7 @@ import { Proprietario } from "./prorietario";
 import { Veterinario } from "./veterinario";
 
 export class Usuario {
-    id?: number = 0;
+    // id?: number = 0;
     usuario?: string = '';
     senha?: string = '';
     email?: string = '';

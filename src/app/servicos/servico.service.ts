@@ -5,7 +5,6 @@ import { Area } from '../modelo/entidades/area';
 import { Orgao } from '../modelo/entidades/orgao';
 import { Contacto } from '../modelo/entidades/contacto';
 import { Repositorio } from '../repositorios/repositorio.service';
-import { DadosDeUso } from '../modelo/entidades/dadosdeuso';
 
 @Injectable({
   providedIn: 'root'

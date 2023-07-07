@@ -3,7 +3,7 @@ import { Marcacao } from "./marcacao";
 import { Usuario } from "./usuario";
 
 export class Veterinario {
-    id = 0;
+    // id = 0;
     nome: string = '';
     genero: string = '';
     especialidade: string = '';

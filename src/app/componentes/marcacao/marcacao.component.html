@@ -7,7 +7,7 @@
                     <div class="p-fluid p-formgrid p-grid">
                         <div class="p-field p-col-12 p-md-6">
                             <label for="animal">Animal</label>
-                            <p-dropdown optionLabel="nome" optionValue="nome" inputId="animal" [options]="animais" [(ngModel)]="animalSelecionado" placeholder="Seleccionar"></p-dropdown>
+                            <p-dropdown optionLabel="nome" inputId="animal" [options]="animais" [(ngModel)]="animalSelecionado" placeholder="Seleccionar"></p-dropdown>
                         </div>
                         <!-- <div class="p-field p-col-12">
                             <label for="address">Address</label>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="p-field p-col-12 p-md-12">
                             <label for="state">Serviços</label>
-                            <p-multiSelect optionLabel="tipoServico" optionValue="tipoServico" [options]="servicos" [(ngModel)]="servicosSelecionados" display="chip"></p-multiSelect>
+                            <p-multiSelect optionLabel="tipoServico" [options]="servicos" [(ngModel)]="servicosSelecionados" display="chip"></p-multiSelect>
                         </div>
                         <!--<div class="p-field p-col-12 p-md-6">
                             <label for="state">Veterinario</label>
@@ -28,6 +28,7 @@
                         </div>-->
                         <div class="p-field p-col-12 p-md-3 p-ml-auto p-mt-4">
                             <button pButton type="button" (click)="agendarServico()" label="Agendar"></button>
+                            <button pButton type="button" (click)="testar()" label="Teste"></button>
                         </div>
                     </div>
                 </div>
