@@ -24,6 +24,8 @@ export class ServicosComponent implements OnInit {
 
   servicos: Servico[];
 
+  listaServicos: Array<Servico> = new Array<Servico>();
+
   tiposServicos: any[] = [
     { name: "Consulta", code: "Consulta" },
     { name: 'Cirurgia', code: 'Cirurgia' },
@@ -115,10 +117,19 @@ export class ServicosComponent implements OnInit {
     // console.log("Dados da Consulta: "+JSON.stringify(this.servico));
     // console.log("Lista de Consulta: "+JSON.stringify(lista));
 
+    // this.listaServicos.unshift(this.servico);
+
+    
+    // this.servicosService.salvarServicoLista(this.listaServicos).subscribe(res => {
+    //   console.log("Serviço salvo com Sucesso: " + res);
+    //   this.limparCampos();
+    //   this.mensagem('success', 'Serviço registado com sucesso');
+    //   this.timeOut();
+    //   this.refresh();
+    // });
+
     if (this.nova) {
       if (!lista) {
-        // this.servico.tipoPagamento = this.tipoPagamentoSelecionado;
-        // this.servicos.unshift(this.servico);
         switch (this.servicoSelecionado) {
           case 'Consulta': {
             this.servicosService.salvarConsulta(this.servico).subscribe(res => {

@@ -34,6 +34,11 @@ export class ServicosrepositorioService {
     return this.http.post<Servico>(`${this.baseUrl}${path}`, servico);
   }
 
+  salvarServicoLista(servico: Array<Servico>): Observable<Array<Servico>> {
+    const path = `Servico/AdicionarLista`;
+    return this.http.post<Array<Servico>>(`${this.baseUrl}${path}`, servico);
+  }
+
   actualizarServico(id: number, servico: Servico): Observable<Servico> {
     const path = `Servico/${id}`;
     return this.http.put<Servico>(`${this.baseUrl}${path}`, servico);

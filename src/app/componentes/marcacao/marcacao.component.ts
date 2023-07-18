@@ -60,6 +60,13 @@ export class MarcacaoComponent implements OnInit {
 
   testar() {
     this.servicosSelecionados.forEach(e => {
+
+      console.log("O objecto: "+(e instanceof Consulta));
+
+
+
+      // console.log("Serviços Selecionados "+JSON.stringify(e));
+
       console.log("Entrou no For: ");
       if (e instanceof Consulta) {
         this.auxServicosSelecionados.push(<Consulta>e);
@@ -80,6 +87,8 @@ export class MarcacaoComponent implements OnInit {
         console.log("Entrou em Vacina!!!");
       }
     });
+
+    // console.log("Serviços Selecionados "+JSON.stringify(this.servicosSelecionados));
 
   }
 

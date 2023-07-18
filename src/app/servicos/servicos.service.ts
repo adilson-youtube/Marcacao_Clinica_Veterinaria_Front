@@ -27,6 +27,10 @@ export class ServicosService {
         return this.repositorio.salvarServico(servico);
     }
 
+    salvarServicoLista(servico: Array<Servico>): Observable<Array<Servico>> {
+        return this.repositorio.salvarServicoLista(servico);
+    }
+
 
     actualizarServico(id: number, servico: Servico): Observable<Servico> {
         return this.repositorio.actualizarServico(id, servico);
