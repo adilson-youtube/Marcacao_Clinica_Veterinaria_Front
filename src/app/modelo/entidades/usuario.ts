@@ -4,7 +4,7 @@ import { Veterinario } from "./veterinario";
 
 export class Usuario {
     // id?: number = 0;
-    usuario?: string = '';
+    NomeUsuario?: string = '';
     senha?: string = '';
     email?: string = '';
     role?: Role = Role.Usuario;
