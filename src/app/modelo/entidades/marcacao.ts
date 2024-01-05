@@ -11,5 +11,5 @@ export class Marcacao {
     ano: Date = new Date();
     animal: Animal = new Animal();
     veterinario: Veterinario = new Veterinario();
-    servicos: Array<Servico> = [];
+    servicos: Array<Servico> = new Array<Servico>();
 }
